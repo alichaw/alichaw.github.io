@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta 
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta 
+    http-equiv="X-UA-Compatible" 
+    content="ie=edge">
+  <meta 
+    name="theme-color" 
+    content="#fff" 
+    id="theme-color">
+  <meta 
+    name="description" 
+    content="just walck">
+  <link 
+    rel="icon" 
+    href="https://i.imgur.com/7VGt7h4.png">
+  <title>web first attack</title>
+  
+    
+      <meta 
+        property="og:title" 
+        content="web first attack">
+    
+    
+      <meta 
+        property="og:url" 
+        content="http://example.com/2022/09/26/web-first-attack/index.html">
+    
+    
+      <meta 
+        property="og:img" 
+        content="https://i.imgur.com/JAae029.png">
+    
+    
+      <meta 
+        property="og:img" 
+        content="&lt;p&gt;這篇是我web攻擊的隨筆，很亂，酌情參考。&lt;/p&gt;">
+    
+    
+      <meta 
+        property="og:type" 
+        content="article">
+      <meta 
+        property="og:article:published_time" 
+        content="2022-09-26">
+      <meta 
+        property="og:article:modified_time" 
+        content="2022-09-26">
+      <meta 
+        property="og:article:author" 
+        content="ali">
+      
+        
+          <meta 
+            property="og:article:tag" 
+            content="web">
+        
+          <meta 
+            property="og:article:tag" 
+            content="hack">
+        
+      
+    
+  
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  <link rel="preload" href="/css/main.css" as="style" >
+  
+  <link rel="modulepreload" href="//instant.page/5.1.0">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+  
+  
+  
+    <link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
+  
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    function loadCSS(href, data, attr) {
+      var sheet = document.createElement('link');
+      sheet.ref = 'stylesheet';
+      sheet.href = href;
+      sheet.dataset[data] = attr;
+      document.head.appendChild(sheet);
+    }
+    function changeCSS(cssFile, data, attr) {
+      var oldlink = document.querySelector(data);
+      var newlink = document.createElement("link");
+      newlink.setAttribute("rel", "stylesheet");
+      newlink.setAttribute("href", cssFile);
+      newlink.dataset.prism = attr;
+      document.head.replaceChild(newlink, oldlink);
+    }
+  </script>
+  
+    
+  
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+  </script>
+  
+    <script>
+      var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+        document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+      }
+    };
+    setDarkmode();
+    </script>
+  
+  
+  
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.js" as="script">
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
+  
+  
+    <link rel="preload" href="/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body>
+    <div class="wrapper">
+       
+      <nav class="navbar">
+  <div class="navbar-logo">
+    <a class="navbar-logo-main" href="/">
+      
+        <img 
+          class="navbar-logo-img"
+          width="32"
+          height="32"
+          src="https://i.imgur.com/7VGt7h4.png" 
+          alt="blog logo">
+      
+      <span class="navbar-logo-dsc">ali's Blog</span>
+      </a>
+  </div>
+  <div class="navbar-menu">
+    
+      <a 
+        href="/" 
+        class="navbar-menu-item">
+        
+          Home
+        
+      </a>
+    
+      <a 
+        href="/archives" 
+        class="navbar-menu-item">
+        
+          Archive
+        
+      </a>
+    
+      <a 
+        href="/tags" 
+        class="navbar-menu-item">
+        
+          Tags
+        
+      </a>
+    
+      <a 
+        href="/categories" 
+        class="navbar-menu-item">
+        
+          Categories
+        
+      </a>
+    
+      <a 
+        href="/about" 
+        class="navbar-menu-item">
+        
+          About
+        
+      </a>
+    
+      <a 
+        href="/links" 
+        class="navbar-menu-item">
+        
+          Friends
+        
+      </a>
+    
+    <button 
+      class="navbar-menu-item darknavbar navbar-menu-btn" 
+      aria-label="Toggle dark mode"
+      id="dark">
+      <i class="iconfont icon-weather"></i>
+    </button>
+    <button 
+      class="navbar-menu-item searchnavbar navbar-menu-btn" 
+      aria-label="Toggle search"
+      id="search">
+      <!-- <i 
+        class="iconfont icon-search" 
+        style="font-size: 1.2rem; font-weight: 400;">
+      </i> -->
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+        class="iconify iconify--ion" width="28" height="28" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M256 80a176 176 0 1 0 176 176A176 176 0 0 0 256 80Z"></path>
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M232 160a72 72 0 1 0 72 72a72 72 0 0 0-72-72Z"></path>
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="28"
+          d="M283.64 283.64L336 336"></path>
+      </svg>
+    </button>
+  </div>
+</nav> 
+      
+      <div 
+        id="local-search" 
+        style="display: none">
+        <input
+          class="navbar-menu-item"
+          id="search-input"
+          placeholder="请输入搜索内容..." />
+        <div id="search-content"></div>
+      </div>
+      
+      <div class="section-wrap">
+        <div class="container">
+          <div class="columns">
+            <aside class="left-column">
+              
+              <div class="card card-author">
+                
+  <img 
+    src="https://i.imgur.com/7VGt7h4.png" 
+    class="author-img"
+    width="88"
+    height="88"
+    alt="author avatar">
+
+<p class="author-name">ali</p>
+<p class="author-description">just walck</p>
+<div class="author-message">
+  <a 
+    class="author-posts-count" 
+    href="/archives">
+    <span>4</span>
+    <span>Posts</span>
+  </a>
+  <a 
+    class="author-categories-count" 
+    href="/categories">
+    <span>2</span>
+    <span>Categories</span>
+  </a>
+  <a 
+    class="author-tags-count" 
+    href="/tags">
+    <span>7</span>
+    <span>Tags</span>
+  </a>
+</div>
+
+  <div class="author-card-society">
+    
+      <div class="author-card-society-icon">
+        <a target="_blank" rel="noopener" href="https://github.com/alichaw">
+          <i class="iconfont icon-github society-icon"></i>
+        </a>
+      </div>
+    
+  </div>
+
+              </div>
+               <div class="sticky-tablet">
+  
+  
+    <article class="display-when-two-columns spacer">
+      <div class="card card-content toc-card">
+        <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Web%E5%85%A5%E9%96%80"><span class="toc-text">Web入門</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%B6%E6%A9%9F%E4%BB%8B%E7%B4%B9"><span class="toc-text">靶機介紹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSI%E8%88%87DoD%E6%A8%A1%E5%9E%8B"><span class="toc-text">OSI與DoD模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DoD-%E6%A8%A1%E5%9E%8B%E8%88%87%E7%B6%B2%E8%B7%AF%E4%BA%92%E9%80%A3%E7%9A%84%E9%97%9C%E8%81%AF"><span class="toc-text">DoD 模型與網路互連的關聯</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%80%8F%E8%A6%BD%E5%99%A8%E7%9A%84%E6%B8%B2%E6%9F%93%E9%81%8E%E7%A8%8B"><span class="toc-text">瀏覽器的渲染過程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-text">總結</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XSS%E6%94%BB%E6%93%8A"><span class="toc-text">XSS攻擊</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E6%88%90%E5%9B%A0"><span class="toc-text">漏洞成因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XSS%E6%94%BB%E6%93%8A%E5%81%B5%E6%B8%AC"><span class="toc-text">XSS攻擊偵測</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%B7%E5%8F%96cookie"><span class="toc-text">偷取cookie</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL-injection"><span class="toc-text">SQL injection</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%B4%B9"><span class="toc-text">介紹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%B3%87%E6%96%99%E6%94%B6%E9%9B%86%E7%9A%84%E5%88%86%E9%A1%9E"><span class="toc-text">1.資料收集的分類</span></a></li></ol></li></ol>
+      </div>
+    </article>
+  
+  
+  <article class="card card-content categories-widget">
+    <div class="categories-card">
+  <div class="categories-header">
+    <i 
+      class="iconfont icon-fenlei" 
+      style="padding-right: 2px;">
+    </i>Categories
+  </div>
+  <div class="categories-list">
+    
+      <a href="/categories/tech-page/">
+        <div class="categories-list-item">
+          tech-page
+          <span class="categories-list-item-badge">2</span>
+        </div>
+      </a>
+    
+      <a href="/categories/hack/">
+        <div class="categories-list-item">
+          hack
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content tags-widget">
+    <div class="tags-card">
+  <div class="tags-header">
+    <i 
+      class="iconfont icon-biaoqian" 
+      style="padding-right: 2px;">
+    </i>hot tags
+  </div>
+  <div class="tags-list">
+    
+      <a 
+        href="/tags/hack/" 
+        title="hack">
+        <div class="tags-list-item">hack</div>
+      </a>
+    
+      <a 
+        href="/tags/web/" 
+        title="web">
+        <div class="tags-list-item">web</div>
+      </a>
+    
+      <a 
+        href="/tags/hexo/" 
+        title="hexo">
+        <div class="tags-list-item">hexo</div>
+      </a>
+    
+      <a 
+        href="/tags/Flutter/" 
+        title="Flutter">
+        <div class="tags-list-item">Flutter</div>
+      </a>
+    
+      <a 
+        href="/tags/Dart/" 
+        title="Dart">
+        <div class="tags-list-item">Dart</div>
+      </a>
+    
+      <a 
+        href="/tags/test/" 
+        title="test">
+        <div class="tags-list-item">test</div>
+      </a>
+    
+      <a 
+        href="/tags/hexo-note/" 
+        title="hexo_note">
+        <div class="tags-list-item">hexo_note</div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+            <main class="main-column">
+              
+  <div class="image-wrapper">
+    <img 
+      src="https://i.imgur.com/JAae029.png" 
+      data-src="https://i.imgur.com/JAae029.png"
+      srcset="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%20300%20300&#39;%3E%3C/svg%3E"
+      class="image lozad"
+      alt="web first attack thumbnail">
+  </div>
+
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      web first attack
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2022-09-26T01:28:07.000Z">
+      <i 
+        class="iconfont icon-calendar" 
+        style="margin-right: 2px;">
+      </i>
+      <span>2022-09-26</span>
+    </time>
+    
+      <span class="dot"></span>
+      
+        <a 
+          href="/categories/hack/" 
+          class="post-meta-link">
+          hack
+        </a>
+      
+    
+    
+      <span class="dot"></span>
+      <span>2.3k words</span>
+    
+  </div>
+  
+    <div 
+      class="post-meta post-show-meta" 
+      style="margin-top: -10px;">
+      <div style="display: flex; align-items: center;">
+        <i 
+          class="iconfont icon-biaoqian" 
+          style="margin-right: 2px; font-size: 1.15rem;">
+        </i>
+        
+          
+          <a 
+            href="/tags/web/" 
+            class="post-meta-link">
+            web
+          </a>
+        
+          
+            <span class="dot"></span>
+          
+          <a 
+            href="/tags/hack/" 
+            class="post-meta-link">
+            hack
+          </a>
+        
+      </div>
+    </div>
+  
+  </header>
+  <div 
+    id="section" 
+    class="post-content">
+    <p>這篇是我web攻擊的隨筆，很亂，酌情參考。</p>
+<span id="more"></span>
+<hr>
+<h1 id="Web入門"><a href="#Web入門" class="headerlink" title="Web入門"></a>Web入門</h1><h2 id="靶機介紹"><a href="#靶機介紹" class="headerlink" title="靶機介紹"></a>靶機介紹</h2><ul>
+<li>demo .testfire .com<ul>
+<li><a target="_blank" rel="noopener" href="https://demo.testfire.net/">https://demo.testfire.net/</a></li>
+</ul>
+</li>
+<li>Acunetix<ul>
+<li><a target="_blank" rel="noopener" href="http://testaspnet.vulnweb.com/">http://testaspnet.vulnweb.com/</a></li>
+</ul>
+</li>
+<li>OverTheWire<ul>
+<li><a target="_blank" rel="noopener" href="https://overthewire.org/wargames/">https://overthewire.org/wargames/</a></li>
+</ul>
+</li>
+<li>TryHackMe</li>
+<li>Heck The Box</li>
+<li>PortSwigger - Web Security Academy</li>
+</ul>
+<h2 id="OSI與DoD模型"><a href="#OSI與DoD模型" class="headerlink" title="OSI與DoD模型"></a>OSI與DoD模型</h2><ul>
+<li>依據網路運作方式，OSI模型共切分成7個不同的層級，每級按照網路傳輸的模式，定義所屬的規範及標準。<br><img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://i.imgur.com/jHzDEgn.png" class="lozad post-image"src="https://i.imgur.com/jHzDEgn.png"></li>
+<li><h3 id="DoD-模型與網路互連的關聯"><a href="#DoD-模型與網路互連的關聯" class="headerlink" title="DoD 模型與網路互連的關聯"></a>DoD 模型與網路互連的關聯</h3>  <img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://i.imgur.com/pF3jJc2.png" class="lozad post-image"src="https://i.imgur.com/pF3jJc2.png"><br>  <img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://i.imgur.com/IlSMSXc.png" class="lozad post-image"src="https://i.imgur.com/IlSMSXc.png"><blockquote>
+<p>首先，使用者端會發出 HTTP 請求(裡面包含了使用者資料)；然後到了傳輸層再加上 TCP 表頭；到了網路層，再加上 IP 表頭；到了網路連結層，再加上乙太表頭，整體會變成一個網路封包，再整包傳給伺服器端，一層層往上處理至 Server。<br>  <img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://i.imgur.com/wYwxlGN.png" class="lozad post-image"src="https://i.imgur.com/wYwxlGN.png"></p>
+</blockquote>
+</li>
+<li>那如果傳送的是含 TCP 表頭的網路封包(因為也有可能傳送的是含 UDP 表頭的封包)，必須要經過「三向交握」來建立連線。三向交握簡單來說就是使用者端會發出 SYN 封包給伺服器，伺服器再回傳 SYN&#x2F;ACK 封包給使用者，使用者端再傳送 ACK 封包。如此三次來回，即可開始傳輸封包</li>
+<li>完成三向交握後，就可以開始傳送 TCP 封包。而直到封包傳送完，回傳 200 OK 狀態碼，才表示資料傳送完成。傳送完封包，瀏覽器便開始渲染網頁。<br>這時如果還欲傳送其他資料，就從下圖中的第 2 點至第 4 點再重複一次，直到所以資料都傳送完，進行 TCP 四次揮手，終止連線。<br>  <img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://i.imgur.com/F1zGTfa.png" class="lozad post-image"src="https://i.imgur.com/F1zGTfa.png"><blockquote>
+<p>(補充： 若請求的網站為 HTTPS，則表示其為加密網站，在傳輸層及應用層多了一道 SSL &#x2F; TLS 憑證。此網站使用 WireShark 去監測封包，會看不到封包內容，比較安全；若為 HTTP 網站，則表示沒有加上 SSL &#x2F; TLS 憑證。HTTP 是走 80 port；HTTPS 則走 443 port)<br>  <img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://i.imgur.com/nt48THs.png" class="lozad post-image"src="https://i.imgur.com/nt48THs.png"></p>
+</blockquote>
+</li>
+<li><h3 id="瀏覽器的渲染過程"><a href="#瀏覽器的渲染過程" class="headerlink" title="瀏覽器的渲染過程"></a>瀏覽器的渲染過程</h3>  <img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://i.imgur.com/s0gWIX4.png" class="lozad post-image"src="https://i.imgur.com/s0gWIX4.png"></li>
+<li><h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3>  <img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://i.imgur.com/fOnFKXT.png" class="lozad post-image"src="https://i.imgur.com/fOnFKXT.png"><br>  參考資料<br><a target="_blank" rel="noopener" href="https://medium.com/yu19941994/%E7%B6%B2%E8%B7%AF%E8%AB%8B%E6%B1%82%E8%88%87%E7%80%8F%E8%A6%BD%E5%99%A8%E6%B8%B2%E6%9F%93-2c1232c23fbf">https://medium.com/yu19941994/%E7%B6%B2%E8%B7%AF%E8%AB%8B%E6%B1%82%E8%88%87%E7%80%8F%E8%A6%BD%E5%99%A8%E6%B8%B2%E6%9F%93-2c1232c23fbf</a></li>
+</ul>
+<h2 id="XSS攻擊"><a href="#XSS攻擊" class="headerlink" title="XSS攻擊"></a>XSS攻擊</h2><ul>
+<li><h3 id="漏洞成因"><a href="#漏洞成因" class="headerlink" title="漏洞成因"></a>漏洞成因</h3><ul>
+<li>avascript這個在前端上不可或缺的語言，不過就是因為他的方便性，也常常變成駭客拿來利用的工具</li>
+<li>駭客可能會在你瀏覽的網頁中，允許惡意的使用插入惡意的javascript，達到某種目的，簡單的可能只會瘋狂地跳alert視窗，嚴重的可能竊取別人的帳戶資訊，接下來就一一介紹XSS的各種型態</li>
+</ul>
+</li>
+<li>:::spoiler 反射型(Reflected)<ul>
+<li><img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://i.imgur.com/7k59NAx.png" class="lozad post-image"src="https://i.imgur.com/7k59NAx.png"></li>
+<li>讓使用者發出惡意的requests(可以是網址, 奇怪的按鈕, 表單form…)，後端如果沒有過濾，將結果傳給給前端，瀏覽器就有可能執行這段惡意的程式碼</li>
+<li>需要社交工程，不能做主動攻擊<br>  :::</li>
+</ul>
+</li>
+<li>:::spoiler DOM型(Dom-based)<ul>
+<li><img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://i.imgur.com/DzWnXiG.png" class="lozad post-image"src="https://i.imgur.com/DzWnXiG.png"></li>
+<li>DOM 全名為Document Object Model，能將HTML中的各個標籤形成一個樹狀結構</li>
+<li>詳細資料：<a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10202689">DOM</a></li>
+<li>發生原因<ul>
+<li>使用DOM的API的時候，使用innerHTML，就可能將script插入到網頁當中</li>
+<li>觸發跟反射型類似，只差在反射型把資料傳給後端，但DOM不會<br>  :::</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>:::spoiler 儲存型(Stored)<ul>
+<li><img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://i.imgur.com/efc3xwO.png" class="lozad post-image"src="https://i.imgur.com/efc3xwO.png"></li>
+<li>會將惡意語法儲存到伺服器或資料庫當中</li>
+<li>通常會發生在論壇文章、留言板…等</li>
+<li>當使用者瀏覽時，就可能讀取到資料庫中的惡意語法，瀏覽器進而去執行<br> :::</li>
+</ul>
+</li>
+<li><h3 id="XSS攻擊偵測"><a href="#XSS攻擊偵測" class="headerlink" title="XSS攻擊偵測"></a>XSS攻擊偵測</h3><ul>
+<li>通常會嘗試看source code，看看有沒有濾掉甚麼特定的標籤</li>
+<li>目前看下來最常使用的方式就是**alert(1)**，因為最快最方便，一但有跳出alert視窗就代表有機會做XSS攻擊</li>
+<li>網路上也有許多各種花式組成的XSS payload，以下就提供兩個連結<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/payloadbox/xss-payload-list">https://github.com/payloadbox/xss-payload-list</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/pgaijin66/XSS-Payloads">https://github.com/pgaijin66/XSS-Payloads</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h3 id="偷取cookie"><a href="#偷取cookie" class="headerlink" title="偷取cookie"></a>偷取cookie</h3><ul>
+<li>Cookie是甚麼<br> :::spoiler<blockquote>
+<p>為了能保持server端與client端保持長久的互動與活動狀態，server會給瀏覽器一組或多組的key&#x2F;value，儲存在瀏覽器當中<br>一般來說cookie會用來紀錄用戶的資訊，常見狀況是用在購物網站的購物車、會員登入或瀏覽紀錄也就是為甚麼在瀏覽器登入fb, twitter…過後，下次打開不需再次登入，因為cookie已經記住你的帳戶資訊<br>換句話說，當駭客想要竊取帳戶資訊，可以透過竊取別人瀏覽器留下的cookie，來偽造登入<br> :::</p>
+</blockquote>
+</li>
+<li>架設環境<ul>
+<li>利用docker-compose, 將東西container化也方便跨平台架設<ul>
+<li>php</li>
+<li>selenium(模擬admin瀏覽管理介面與留言)</li>
+<li>mysql(儲存留言)<blockquote>
+<p>想了解docker-compose怎麼用的可以參考此篇鐵人賽文章<br><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10194183">https://ithelp.ithome.com.tw/articles/10194183</a></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>工具 - Pipedream<ul>
+<li>為了要將cookie彈回server，可以使用線上工具，就不需要自架server或租VPS</li>
+<li>新增一組新的workflow，接收HTTP requests</li>
+<li><a target="_blank" rel="noopener" href="https://pipedream.com/workflows">https://pipedream.com/workflows</a></li>
+</ul>
+</li>
+<li>工具 - EditThisCookie<ul>
+<li>cookie的管理器。您可以增加、刪除、修改、搜尋、保護和封鎖cookies</li>
+<li><a target="_blank" rel="noopener" href="https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg/related?hl=zh-TW">https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg/related?hl=zh-TW</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="SQL-injection"><a href="#SQL-injection" class="headerlink" title="SQL injection"></a>SQL injection</h2><ul>
+<li><h3 id="介紹"><a href="#介紹" class="headerlink" title="介紹"></a>介紹</h3><ul>
+<li>發生在後端與資料庫之間的安全漏洞。駭客在輸入的字串中能夠夾帶SQL指令，並沒有過濾字串</li>
+<li>通常是使用字串串聯方式來構成SQL的指令，若又在連線的時候使用權限過大的帳戶(工程師偷懶使用root或sa連接資料庫XD)，甚至可以Get Shell</li>
+<li>SQL-injection最經典的一部漫畫<ul>
+<li>媽媽接到電話，你好，我這邊是你兒子的學校，我們電腦出了點狀況oh, 他用壞了甚麼東西嗎，媽媽問。 校方說: 可以這麼說</li>
+<li>校方說: 你真的把你兒子取名為 <em>Robert’); DROP TABLE Students; –</em> 嗎?媽媽說: 是的，我們都叫他寶貝table</li>
+<li>校方回說: 我們今年的學生資料都不見了，希望你覺得滿意。媽媽說: 希望你以後會記得把寫進Table的資料清掉</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><ul>
+<li>網站的登入驗證 <pre class="highlight"><span class="line"><span class="keyword">sql</span> <span class="operator">=</span> &quot;SELECT * FROM users WHERE (name = &#x27;&quot; <span class="operator">+</span> username<span class="operator">+</span> &quot;&#x27;) and (pw = &#x27;&quot;<span class="operator">+</span> password <span class="operator">+</span>&quot;&#x27;);&quot;;</span><br><span class="line">db<span class="operator">-</span><span class="operator">&gt;</span><span class="keyword">execute</span>(<span class="keyword">sql</span>);</span><br></pre></li>
+</ul>
+</li>
+<li>這時駭客輸入在登入介面分別輸入<ul>
+<li>username: ‘ OR 1&#x3D;1 –</li>
+<li>password: ‘ OR 1&#x3D;1 –</li>
+</ul>
+</li>
+<li>組合完會像這樣<ul>
+<li><strong>name &#x3D; ‘1’</strong> OR 1&#x3D;1<ul>
+<li>前面的語句就算邏輯錯誤，後面的1&#x3D;1條件恆為True，False or True &#x3D; True</li>
+<li>因此，後面兩個OR條件後的句子，都恆為True，進而達到沒有帳號密碼就能登入網站的尷尬情況</li>
+</ul>
+</li>
+<li>–為註解，目的是將無用的語句去掉<ul>
+<li>MySQL還有其他註解像是 <strong>#, &#x2F;</strong>*<pre class="highlight"><span class="line"><span class="keyword">sql</span> <span class="operator">=</span> &quot;SELECT * FROM users WHERE (name = &#x27;&#x27; OR 1=1--&#x27;) and (pw = &#x27;&#x27; OR 1=1 --&#x27;);&quot;;</span><br><span class="line">db<span class="operator">-</span><span class="operator">&gt;</span><span class="keyword">execute</span>(<span class="keyword">sql</span>);</span><br></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>搭配漫畫的例子<ul>
+<li>將password改成: ‘ OR 1&#x3D;1; DROP TABLE Students; –</li>
+<li>很恭喜，你的整張表就直接不見囉<pre class="highlight"><span class="line"><span class="keyword">sql</span> <span class="operator">=</span> &quot;SELECT * FROM users WHERE (name = &#x27;&#x27; OR 1=1 --&#x27;) and (pw = &#x27;&#x27; OR 1=1; DROP TABLE users --&#x27;);&quot;;</span><br><span class="line">db<span class="operator">-</span><span class="operator">&gt;</span><span class="keyword">execute</span>(<span class="keyword">sql</span>);</span><br></pre></li>
+</ul>
+</li>
+<li><strong>如何避免?</strong><ul>
+<li>單純的過濾輸入，但駭客的手法百百種，他們能在有限的狀況下，又找出新的方法可以繞過恩，後面講的靶場就是模擬駭客在受限的各種字元過濾下，盡情的絞盡腦汁繞過</li>
+<li>比較安全的作法：<ul>
+<li>使用prepared statements(預先準備SQL語句)搭配parameterized queries(參數化的查詢)</li>
+<li>透過預先準備SQL語句與參數化查詢，能讓資料庫知道說要插入甚麼值作為甚麼功用，就不會對甚麼OR 1&#x3D;1 –和空的密碼做query，或是用;截斷語句做其他事情</li>
+</ul>
+</li>
+</ul>
+</li>
+<li></li>
+</ul>
+<h2 id="1-資料收集的分類"><a href="#1-資料收集的分類" class="headerlink" title="1.資料收集的分類"></a>1.資料收集的分類</h2><ul>
+<li><p>敏感目錄洩露</p>
+<ul>
+<li><ol>
+<li>git洩露</li>
+</ol>
+<ul>
+<li>正常git洩漏<blockquote>
+<p>工具: <a target="_blank" rel="noopener" href="https://github.com/denny0223/scrabble">https://github.com/denny0223/scrabble</a><br>.&#x2F;scrabble <a target="_blank" rel="noopener" href="http://example.coom/">http://example.coom/</a><br>執行工具即可取得原始程式碼 -&gt; flag</p>
+</blockquote>
+</li>
+<li>git回覆<blockquote>
+<p>git 是一個版本控制工具，會記錄每次提交(commit)的修改，所以當題目存在git洩漏之時，flag檔案可能在修改中被刪除或被覆蓋了。</p>
+</blockquote>
+<ul>
+<li>使用git的git reset來回覆到之前的版本，回到上一個檔案 <strong>“git reset –hard HEAD^”</strong></li>
+<li>或是使用 <strong>“git log -stat”</strong> 來檢視每一個commit修改了甚麼檔案，再用 <strong>“git diff HEAD commit-id”</strong> 比較在目前版本與想檢視的commit之間的變化</li>
+</ul>
+</li>
+<li>git分支<blockquote>
+<p>在每次提交時，git都會自動把他們串成一條時間線，就是分支。git允許使用多條分支，讓使用者從開發主線中抽離。因此，我們要找的flag可能不在目前的分支中，這時使用</p>
+</blockquote>
+<pre class="highlight"><span class="line">$ git log</span><br></pre>
+<blockquote>
+<p>GitHacker(<a target="_blank" rel="noopener" href="https://github.com/WangYihang/GitHacker">https://github.com/WangYihang/GitHacker</a>)</p>
+</blockquote>
+<pre class="highlight"><span class="line">$ python GitHacker.py http://<span class="number">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">800</span>/.git/ </span><br><span class="line">//執行指令 進入資料夾 </span><br><span class="line">$ git log --all or $ git branch -v   //只能看到master分支資訊</span><br><span class="line">$ git reflog  //checkout的紀錄 除了master還有一個secret分支</span><br></pre>
+<blockquote>
+<p>但自動化工具只還原了master的資訊，secrat的head資訊需手動下載。</p>
+</blockquote>
+<pre class="highlight"><span class="line">$ wger http://127.0.0.1:8000/.git/refs/head/secret</span><br><span class="line">//恢復head資訊</span><br></pre></li>
+</ul>
+</li>
+<li><ol start="2">
+<li>SVN洩漏</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>敏感備份檔案</p>
+</li>
+<li><p>Banner識別</p>
+</li>
+<li><p><img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://i.imgur.com/qFz1za6.png" class="lozad post-image"src="https://i.imgur.com/qFz1za6.png"></p>
+</li>
+</ul>
+
+  </div>
+  <div>
+    
+  </div>
+</article>
+<div class="nav">
+  
+    <div class="nav-item-prev">
+      <a 
+        href="/2022/09/26/how-to-hexo/" 
+        class="nav-link">
+        <i class="iconfont icon-left nav-prev-icon"></i>
+        <div>
+          <div class="nav-label">Prev</div>
+          
+            <div class="nav-title">how to hexo </div>
+          
+        </div>
+      </a>
+    </div>
+  
+  
+    <div class="nav-item-next">
+      <a 
+        href="/2022/09/25/hello-world/" 
+        class="nav-link">
+        <div>
+          <div class="nav-label">Next</div>
+          
+            <div class="nav-title">Hello World </div>
+          
+        </div>
+        <i class="iconfont icon-right nav-next-icon"></i>
+      </a>
+    </div>
+  
+</div>
+
+<div 
+  class="card card-content toc-card" 
+  id="mobiletoc">
+  <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Web%E5%85%A5%E9%96%80"><span class="toc-text">Web入門</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%B6%E6%A9%9F%E4%BB%8B%E7%B4%B9"><span class="toc-text">靶機介紹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSI%E8%88%87DoD%E6%A8%A1%E5%9E%8B"><span class="toc-text">OSI與DoD模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DoD-%E6%A8%A1%E5%9E%8B%E8%88%87%E7%B6%B2%E8%B7%AF%E4%BA%92%E9%80%A3%E7%9A%84%E9%97%9C%E8%81%AF"><span class="toc-text">DoD 模型與網路互連的關聯</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%80%8F%E8%A6%BD%E5%99%A8%E7%9A%84%E6%B8%B2%E6%9F%93%E9%81%8E%E7%A8%8B"><span class="toc-text">瀏覽器的渲染過程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-text">總結</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XSS%E6%94%BB%E6%93%8A"><span class="toc-text">XSS攻擊</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E6%88%90%E5%9B%A0"><span class="toc-text">漏洞成因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XSS%E6%94%BB%E6%93%8A%E5%81%B5%E6%B8%AC"><span class="toc-text">XSS攻擊偵測</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%B7%E5%8F%96cookie"><span class="toc-text">偷取cookie</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL-injection"><span class="toc-text">SQL injection</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%B4%B9"><span class="toc-text">介紹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%B3%87%E6%96%99%E6%94%B6%E9%9B%86%E7%9A%84%E5%88%86%E9%A1%9E"><span class="toc-text">1.資料收集的分類</span></a></li></ol></li></ol>
+</div>
+            </main>
+            <aside class="right-column">
+              <div class="sticky-widescreen">
+  
+  
+    <article class="card card-content toc-card">
+      <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Web%E5%85%A5%E9%96%80"><span class="toc-text">Web入門</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%B6%E6%A9%9F%E4%BB%8B%E7%B4%B9"><span class="toc-text">靶機介紹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSI%E8%88%87DoD%E6%A8%A1%E5%9E%8B"><span class="toc-text">OSI與DoD模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DoD-%E6%A8%A1%E5%9E%8B%E8%88%87%E7%B6%B2%E8%B7%AF%E4%BA%92%E9%80%A3%E7%9A%84%E9%97%9C%E8%81%AF"><span class="toc-text">DoD 模型與網路互連的關聯</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%80%8F%E8%A6%BD%E5%99%A8%E7%9A%84%E6%B8%B2%E6%9F%93%E9%81%8E%E7%A8%8B"><span class="toc-text">瀏覽器的渲染過程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B8%BD%E7%B5%90"><span class="toc-text">總結</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XSS%E6%94%BB%E6%93%8A"><span class="toc-text">XSS攻擊</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E6%88%90%E5%9B%A0"><span class="toc-text">漏洞成因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#XSS%E6%94%BB%E6%93%8A%E5%81%B5%E6%B8%AC"><span class="toc-text">XSS攻擊偵測</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%81%B7%E5%8F%96cookie"><span class="toc-text">偷取cookie</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL-injection"><span class="toc-text">SQL injection</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8B%E7%B4%B9"><span class="toc-text">介紹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%B3%87%E6%96%99%E6%94%B6%E9%9B%86%E7%9A%84%E5%88%86%E9%A1%9E"><span class="toc-text">1.資料收集的分類</span></a></li></ol></li></ol>
+    </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header">
+    <i 
+      class="iconfont icon-wenzhang_huaban" 
+      style="padding-right: 2px;">
+    </i>Recent Posts
+  </div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-09-26</div>
+        <a href="/2022/09/26/how-to-hexo/"><div class="recent-posts-item-content">how to hexo</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-09-26</div>
+        <a href="/2022/09/26/web-first-attack/"><div class="recent-posts-item-content">web first attack</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-09-25</div>
+        <a href="/2022/09/25/hello-world/"><div class="recent-posts-item-content">Hello World</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-09-25</div>
+        <a href="/2022/09/25/Dart-for-Flutter-with-MacOS/"><div class="recent-posts-item-content">Dart for Flutter with MacOS</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>
+          Copyright ©
+          
+            2020
+          
+          
+                - 
+                2022
+          
+        </span>
+        &nbsp;
+        <a 
+          href="/" 
+          class="footer-link">
+          ali's Blog
+        </a>
+      </div>
+    </div>
+
+    
+      <div class="footer-dsc">
+        
+          Powered by
+          <a 
+            href="https://hexo.io/" 
+            class="footer-link" 
+            target="_blank" 
+            rel="nofollow noopener noreferrer">
+            &nbsp;Hexo
+          </a>
+        
+        
+          <span>&nbsp;|&nbsp;</span>
+        
+        
+          Theme -
+          <a 
+            href="https://github.com/theme-kaze" 
+            class="footer-link" 
+            target="_blank"
+            rel="nofollow noopener noreferrer">
+            &nbsp;Kaze
+          </a>
+        
+      </div>
+    
+    
+    
+    
+</footer>
+ 
+    
+  <a 
+    role="button" 
+    id="scrollbutton" 
+    class="basebutton" 
+    aria-label="回到顶部">
+    <i class="iconfont icon-arrowleft button-icon"></i>
+  </a>
+
+<a 
+  role="button" 
+  id="menubutton"
+  aria-label="menu button"
+  class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="popbutton" 
+  class="basebutton" 
+  aria-label="控制中心">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="darkbutton" 
+  class="basebutton darkwidget" 
+  aria-label="夜色模式">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="searchbutton" 
+  class="basebutton searchwidget" 
+  aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
+</a> 
+     
+     
+     
+      <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img')
+    var i
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a')
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'))
+      wrapper.setAttribute('aria-label', 'illustration')
+      wrapper.style.cssText =
+        'width: 100%; display: flex; justify-content: center;'
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt
+      wrapper.dataset.nolink = true
+      img[i].before(wrapper)
+      wrapper.append(img[i])
+      var divWrap = document.createElement('div')
+      divWrap.classList.add('gallery')
+      wrapper.before(divWrap)
+      divWrap.append(wrapper)
+    }
+    baguetteBox.run('.gallery')
+  }
+</script>
+<script>
+  loadScript(
+    "/js/lib/lightbox/baguetteBox.min.js",
+    addImgLayout
+  )
+</script>
+ 
+     
+     
+    <script src="/js/main.js"></script> 
+     
+    
+      <script>
+        var addLazyload = function () {
+          var observer = lozad('.lozad', {
+            load: function (el) {
+              el.srcset = el.getAttribute('data-src')
+            },
+            loaded: function (el) {
+              el.classList.add('loaded')
+            },
+          })
+          observer.observe()
+        }
+      </script>
+      <script>
+        loadScript('/js/lib/lozad.min.js', addLazyload)
+      </script>
+    
+    <script src="//instant.page/5.1.0" type="module"
+      integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+    
+    
+      <script>
+        setTimeout(() => {localSearch("search.json")}, 0)
+      </script>
+    
+  </body>
+</html>
