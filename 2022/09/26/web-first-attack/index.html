@@ -174,6 +174,9 @@
   
   
   
+    
+    <link rel="prefetch" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" as="script">
+  
   
 <meta name="generator" content="Hexo 6.3.0"></head>
 
@@ -384,33 +387,9 @@
   <div class="tags-list">
     
       <a 
-        href="/tags/hack/" 
-        title="hack">
-        <div class="tags-list-item">hack</div>
-      </a>
-    
-      <a 
-        href="/tags/web/" 
-        title="web">
-        <div class="tags-list-item">web</div>
-      </a>
-    
-      <a 
-        href="/tags/hexo/" 
-        title="hexo">
-        <div class="tags-list-item">hexo</div>
-      </a>
-    
-      <a 
-        href="/tags/Flutter/" 
-        title="Flutter">
-        <div class="tags-list-item">Flutter</div>
-      </a>
-    
-      <a 
-        href="/tags/Dart/" 
-        title="Dart">
-        <div class="tags-list-item">Dart</div>
+        href="/tags/hexo-note/" 
+        title="hexo_note">
+        <div class="tags-list-item">hexo_note</div>
       </a>
     
       <a 
@@ -420,9 +399,33 @@
       </a>
     
       <a 
-        href="/tags/hexo-note/" 
-        title="hexo_note">
-        <div class="tags-list-item">hexo_note</div>
+        href="/tags/Dart/" 
+        title="Dart">
+        <div class="tags-list-item">Dart</div>
+      </a>
+    
+      <a 
+        href="/tags/Flutter/" 
+        title="Flutter">
+        <div class="tags-list-item">Flutter</div>
+      </a>
+    
+      <a 
+        href="/tags/hexo/" 
+        title="hexo">
+        <div class="tags-list-item">hexo</div>
+      </a>
+    
+      <a 
+        href="/tags/web/" 
+        title="web">
+        <div class="tags-list-item">web</div>
+      </a>
+    
+      <a 
+        href="/tags/hack/" 
+        title="hack">
+        <div class="tags-list-item">hack</div>
       </a>
     
   </div>
@@ -743,6 +746,40 @@
     </div>
   
 </div>
+
+  <div 
+    class="card card-content comment-card" 
+    style="margin-top: 16px;">
+    <div class="comment-card-title">评论</div>
+    
+  <div id="gitalk-container"></div>
+  
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+  
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+  
+<script src="/js/lib/md5.min.js"></script>
+
+  <script>
+    var gitalk = new Gitalk({
+      clientID: '0caf1a2d8c59888fd3ec',
+      clientSecret: '3863f5520ba411ee3417e3225d9c59791fff9c33',
+      repo: 'https://alichaw.github.io',
+      owner: 'ali',
+      admin: "ali",
+      id: md5(location.href),
+      distractionFreeMode: true,
+      language: 'en | zh-TW',
+      labels: ["Gitalk"],
+      perPage: 10
+    })
+
+    gitalk.render('gitalk-container')
+  </script>
+
+  </div>
 
 <div 
   class="card card-content toc-card" 
