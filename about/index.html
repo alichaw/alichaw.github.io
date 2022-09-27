@@ -157,7 +157,6 @@
   <body>
     <div class="wrapper">
       <div id="bubble-wrapper">
-        <div class="bubble"></div>
       </div>
        
       <nav class="navbar">
@@ -739,17 +738,19 @@
       <script>
         setTimeout(() => {localSearch("search.json")}, 0)
         const wrapper = document.getElementById("bubble-wrapper");
-        const animateBubble = x => {
-          const bubble = document.createElement("div");
 
+        const animateBubble = x => {  
+          const bubble = document.createElement("div");
+  
           bubble.className = "bubble";
           bubble.style.left = `${x}px`;
+  
           wrapper.appendChild(bubble);
-
+  
           setTimeout(() => wrapper.removeChild(bubble), 2000);
         }
 
-        window.onmousemove = e => animateBubble(e, clienX);
+        window.onmousemove = e => animateBubble(e.clientX);
       </script>
     
   </body>
