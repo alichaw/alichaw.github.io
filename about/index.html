@@ -2,6 +2,9 @@
 <html lang="en">
   <head>
   <meta charset="UTF-8">
+  <div id="bubble-wrapper">
+    <div class="bubble"></div>
+  </div>
   <meta 
     name="viewport"
     content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
@@ -134,6 +137,18 @@
       }
     };
     setDarkmode();
+    const wrapper = document.getElementById("bubble-wrapper");
+        const animateBubble = x => {
+          const bubble = document.createElement("div");
+
+          bubble.className = "bubble";
+          bubble.style.left = `${x}px`;
+          wrapper.appendChild(bubble);
+
+          setTimeout(() => wrapper.removeChild(bubble), 2000);
+        }
+
+        window.onmousemove = e => animateBubble(e, clienX);
     </script>
   
   
@@ -155,8 +170,6 @@
 <meta name="generator" content="Hexo 6.3.0"></head>
 
   <body>
-    <div id="bubble-wrapper">
-    </div>
     <div class="wrapper">
        
       <nav class="navbar">
@@ -737,18 +750,6 @@
     
       <script>
         setTimeout(() => {localSearch("search.json")}, 0)
-        const wrapper = document.getElementById("bubble-wrapper");
-        const animateBubble = x => {
-          const bubble = document.createElement("div");
-
-          bubble.className = "bubble";
-          bubble.style.left = `${x}px`;
-          wrapper.appendChild(bubble);
-
-          setTimeout(() => wrapper.removeChild(bubble), 2000);
-        }
-
-        window.onmousemove = e => animateBubble(e, clienX);
       </script>
     
   </body>
