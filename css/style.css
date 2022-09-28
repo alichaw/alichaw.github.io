@@ -222,6 +222,16 @@ body {
 .article-entry hr {
   border: 1px dashed #ddd;
 }
+@keyframes wave {
+  from, to {
+    transform: translate(-50%, 0%);
+  }
+  
+  50% {
+    transform: translate(-50%, -20%);
+  }
+}
+
 #bubble-wrapper {
   height: 100%;
   width: 100%;
@@ -246,13 +256,13 @@ body {
   
   animation: wave 2s ease-in-out infinite;
 }
-
+/*
 @media(prefers-reduced-motion) {
   .bubble {
     animation: none;
     display: none;
   }
-}
+} */
 .article-entry strong {
   font-weight: bold;
 }
