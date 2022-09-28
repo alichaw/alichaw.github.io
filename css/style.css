@@ -247,7 +247,7 @@ body {
   height: max(300px, 30vw);
   width: max(300px, 30vw);
   
-  background-color: rgb(49, 115, 220);  
+  background-color: rgb(49, 115, 0);  
   border-radius: 100%;
   
   position: absolute;
