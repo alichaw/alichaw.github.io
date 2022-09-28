@@ -130,6 +130,7 @@ body {
   box-sizing: border-box;
   overflow-wrap: break-word;
 }
+
 /*
 @keyframes wave {
   from, to {
@@ -139,11 +140,6 @@ body {
   50% {
     transform: translate(-50%, -20%);
   }
-}
-
-body {
-  background-color: rgb(10, 10, 10);
-  margin: 0px;
 }
 
 #bubble-wrapper {
