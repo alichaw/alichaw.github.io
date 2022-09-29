@@ -1582,7 +1582,7 @@ mjx-container svg:focus {
 .style .token.string {
   background: none !important;
 }
-
+/*
 @keyframes wave {
   from, to {
     transform: translate(-50%, 0%);
@@ -1591,11 +1591,6 @@ mjx-container svg:focus {
   50% {
     transform: translate(-50%, -20%);
   }
-}
-
-body {
-  background-color: rgb(10, 10, 10);
-  margin: 0px;
 }
 
 #bubble-wrapper {
@@ -1631,7 +1626,7 @@ body {
 }
 
 /* -- Footer styles -- */
-
+/*
 h3, a {
   font-family: "Rubik", sans-serif;
   font-weight: 400;
@@ -1718,7 +1713,7 @@ h3, a {
 }
 
 /* -- YouTube Link Styles -- */
-
+/*
 body.menu-toggled > .meta-link > span {
   color: rgb(30, 30, 30);
 }
@@ -1769,3 +1764,4 @@ body.menu-toggled > .meta-link > span {
   font-family: "Rubik", sans-serif;
   font-weight: 500;
 }
+*/
