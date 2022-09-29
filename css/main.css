@@ -141,7 +141,7 @@ body {
     transform: translate(-50%, -20%);
   }
 }
-
+/*
 #bubble-wrapper {
   height: 100%;
   width: 100%;
@@ -172,7 +172,7 @@ body {
     animation: none;
     display: none;
   }
-} 
+} */
 
 ol ol,
 ul ol,
