@@ -18,27 +18,27 @@
   <link 
     rel="icon" 
     href="https://i.imgur.com/7VGt7h4.png">
-  <title>Dart for Flutter with MacOS</title>
+  <title>用 Hexo 上自己的 JS 無情消失 - 解決方式</title>
   
     
       <meta 
         property="og:title" 
-        content="Dart for Flutter with MacOS">
+        content="用 Hexo 上自己的 JS 無情消失 - 解決方式">
     
     
       <meta 
         property="og:url" 
-        content="https://alichaw.github.io/2022/09/25/Dart-for-Flutter-with-MacOS/index.html">
+        content="https://alichaw.github.io/2022/09/29/%E7%94%A8-Hexo-%E4%B8%8A%E8%87%AA%E5%B7%B1%E7%9A%84-JS-%E7%84%A1%E6%83%85%E6%B6%88%E5%A4%B1-%E8%A7%A3%E6%B1%BA%E6%96%B9%E5%BC%8F/index.html">
     
     
       <meta 
         property="og:img" 
-        content="https://i.imgur.com/IPJnu9F.png">
+        content="https://i.imgur.com/7VGt7h4.png">
     
     
       <meta 
         property="og:img" 
-        content="just walck">
+        content="&lt;p&gt;Hexo 上 JS 無情消失的解決方式&lt;/p&gt;">
     
     
       <meta 
@@ -46,22 +46,14 @@
         content="article">
       <meta 
         property="og:article:published_time" 
-        content="2022-09-25">
+        content="2022-09-29">
       <meta 
         property="og:article:modified_time" 
-        content="2022-09-26">
+        content="2022-09-29">
       <meta 
         property="og:article:author" 
         content="ali">
       
-        
-          <meta 
-            property="og:article:tag" 
-            content="Dart">
-        
-          <meta 
-            property="og:article:tag" 
-            content="Flutter">
         
       
     
@@ -346,7 +338,7 @@
     style="padding-right: 2px;">
   </i>TOC
 </div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#setup"><span class="toc-text">setup</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E9%81%87%E5%88%B0%E7%9A%84%E5%95%8F%E9%A1%8C"><span class="toc-text">我遇到的問題</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E7%90%86%E6%99%82%E9%96%93"><span class="toc-text">推理時間</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA"><span class="toc-text">解決</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EJS-%E4%BB%8B%E7%B4%B9"><span class="toc-text">EJS 介紹</span></a></li></ol>
       </div>
     </article>
   
@@ -446,94 +438,110 @@
             </aside>
             <main class="main-column">
               
-  <div class="image-wrapper">
-    <img 
-      src="https://i.imgur.com/IPJnu9F.png" 
-      data-src="https://i.imgur.com/IPJnu9F.png"
-      srcset="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%20300%20300&#39;%3E%3C/svg%3E"
-      class="image lozad"
-      alt="Dart for Flutter with MacOS thumbnail">
-  </div>
-
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      Dart for Flutter with MacOS
+      用 Hexo 上自己的 JS 無情消失 - 解決方式
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2022-09-24T16:00:00.000Z">
+    <time datetime="2022-09-29T07:43:22.000Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2022-09-25</span>
+      <span>2022-09-29</span>
     </time>
     
-      <span class="dot"></span>
-      
-        <a 
-          href="/categories/tech-page/" 
-          class="post-meta-link">
-          tech_page
-        </a>
-      
-    
     
       <span class="dot"></span>
-      <span>93 words</span>
+      <span>1k words</span>
     
   </div>
-  
-    <div 
-      class="post-meta post-show-meta" 
-      style="margin-top: -10px;">
-      <div style="display: flex; align-items: center;">
-        <i 
-          class="iconfont icon-biaoqian" 
-          style="margin-right: 2px; font-size: 1.15rem;">
-        </i>
-        
-          
-          <a 
-            href="/tags/Dart/" 
-            class="post-meta-link">
-            Dart
-          </a>
-        
-          
-            <span class="dot"></span>
-          
-          <a 
-            href="/tags/Flutter/" 
-            class="post-meta-link">
-            Flutter
-          </a>
-        
-      </div>
-    </div>
   
   </header>
   <div 
     id="section" 
     class="post-content">
-    <p>安裝 Flutter 以及使用 VS Code</p>
-<h2 id="setup"><a href="#setup" class="headerlink" title="setup"></a>setup</h2><ul>
-<li>flutter<ul>
-<li>跟著<a target="_blank" rel="noopener" href="https://docs.flutter.dev/get-started/install/macos">官方</a>下載</li>
-<li>terminal執行以下指令<pre class="highlight"><span class="line"><span class="built_in">cd</span> ~/development</span><br><span class="line">unzip ~/Downloads/flutter_macos_arm64_3.<span class="number">3</span>.<span class="number">2</span>-stable.zip</span><br></pre>
-<pre class="highlight"><span class="line">export <span class="built_in">PATH</span>=&quot;$<span class="built_in">PATH</span>:`pwd`/flutter/bin&quot;</span><br></pre></li>
-</ul>
-</li>
-<li>VS code<ul>
-<li><img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://i.imgur.com/RFhE3Xx.png" class="lozad post-image"src="https://i.imgur.com/RFhE3Xx.png"></li>
-<li><img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://i.imgur.com/ZLPSeQB.png" class="lozad post-image"src="https://i.imgur.com/ZLPSeQB.png"></li>
-<li><img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://i.imgur.com/aZVkf1f.png" class="lozad post-image"src="https://i.imgur.com/aZVkf1f.png"></li>
-<li><img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://i.imgur.com/HYOfEdv.png" class="lozad post-image"src="https://i.imgur.com/HYOfEdv.png"></li>
+    <p>Hexo 上 JS 無情消失的解決方式</p>
+<span id="more"></span>
+<h2 id="我遇到的問題"><a href="#我遇到的問題" class="headerlink" title="我遇到的問題"></a>我遇到的問題</h2><p>套上模板之後，我發現我不能像一般寫靜態網站一樣把 JS 打在 index.html 上，每次一寫好在terminal輸入 <code>hexo deploy</code> 或是 <code>hexo g -d</code> 都會被原本被蓋掉，不能新增。<br><img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://i.imgur.com/oH9EfsC.png" class="lozad post-image"src="https://i.imgur.com/oH9EfsC.png"><br>上圖為試圖新增 <code>&lt;div id=&quot;Hello&quot;&gt;&lt;/div&gt;</code> 在 <code>index.html</code><br>然後正常來說，按儲存推上去就沒問題了吧？我們試試</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs plaintext">$ hexo g -d<br></code></pre></td></tr></table></figure>
+<p><img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://i.imgur.com/RShbS5y.png" class="lozad post-image"src="https://i.imgur.com/RShbS5y.png"><br>他就…<br><img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://i.imgur.com/4QviVZB.png" class="lozad post-image"src="https://i.imgur.com/4QviVZB.png"><br>無情的<strong>消失</strong>了QAQ</p>
+<h2 id="推理時間"><a href="#推理時間" class="headerlink" title="推理時間"></a>推理時間</h2><ul>
+<li>是推上 git 的問題嗎？<ul>
+<li>否。</li>
 </ul>
 </li>
 </ul>
-<pre class="highlight"><span class="line"><span class="keyword">import</span> <span class="string">&#x27;package:flutter/material.dart&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> main()&#123;</span><br><span class="line">    <span class="keyword">var</span> appTitle = Text(<span class="string">&#x27;my first Flutter App&#x27;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> hiFlutter = Text(<span class="string">&#x27;Hi, Flutter.&#x27;</span>, style: TextStyle(fontSize: <span class="number">30</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> appBody = Center(child: hiFlutter,);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> appBar = AppBar(title: appTitle, );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> app = MaterialApp(</span><br><span class="line">      home: Scaffold(</span><br><span class="line">        appBar: appBar,</span><br><span class="line">        body: appBody,</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    runApp(app);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre>
+<blockquote>
+<p>用 <code>hexo s</code> 在畚箕檢查<br>檢測後發現他是在本機就消失<br>所以推測是在下載下來的 theme 中有檔案複製他自己架好的文件</p>
+</blockquote>
+<ul>
+<li>是全部都不見嗎？<ul>
+<li>只有 html 檔被重整</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>試著在裡面 style.css 和 index.html 裡新增自己的東西<br>只有 html 被刪除</p>
+</blockquote>
+<ul>
+<li>依照上述問答推理，我們可以知道是有一個檔案來自動生成或修改 HTML 檔</li>
+</ul>
+<p>但是這麼多檔案要怎麼找？？？<br><img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://i.imgur.com/xB5tRdC.png" class="lozad post-image"src="https://i.imgur.com/xB5tRdC.png"></p>
+<h2 id="解決"><a href="#解決" class="headerlink" title="解決"></a>解決</h2><ul>
+<li>所以我對照 <code>theme</code> 裡的文件，尋找熟悉的身影…</li>
+<li>找到了兩個我沒見過的副檔名 <code>.ejs</code> 和 <code>.ts</code><ul>
+<li>.ts<ul>
+<li><a target="_blank" rel="noopener" href="https://www.typescriptlang.org/">TypeScript</a></li>
+<li>官方介紹：TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.</li>
+<li>Ummmm… 說是基於 JS 的強型別語言，感覺不是。</li>
+<li><a target="_blank" rel="noopener" href="https://willh.gitbook.io/typescript-tutorial/introduction/what-is-typescript">TypeScript 新手指南</a></li>
+</ul>
+</li>
+<li>.ejs<ul>
+<li><a target="_blank" rel="noopener" href="https://ejs.co/">EJS</a></li>
+<li>官方介紹：What is the “E” for? “Embedded?” Could be. How about “Effective,” “Elegant,” or just “Easy”? <strong>EJS is a simple templating language that lets you generate HTML markup with plain JavaScript.</strong> No religiousness about how to organize things. No reinvention of iteration and control-flow. It’s just plain JavaScript.</li>
+<li>說是基於 JS 的簡單模板語言讓我生成 HTML 檔</li>
+<li>找到了～</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>稍微學會看懂他的使用方式，可以照著原本寫HTML的方式寫，差別只是在於是寫在 .ejs 檔裡面而已。</li>
+<li>我的作法是把我會寫的 JS 直接寫在 EJS 裏面，像這樣：<br><img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://i.imgur.com/W2UERou.png" class="lozad post-image"src="https://i.imgur.com/W2UERou.png"></li>
+</ul>
+<p>原本的程式碼</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">&lt;script&gt;<br>        <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<span class="hljs-title function_">localSearch</span>(<span class="hljs-string">&quot;&lt;%= theme.search.path || &#x27;search.json&#x27; %&gt;&quot;</span>)&#125;, <span class="hljs-number">0</span>)<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+<p>我新增的</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">&lt;script&gt;<br>        <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<span class="hljs-title function_">localSearch</span>(<span class="hljs-string">&quot;&lt;%= theme.search.path || &#x27;search.json&#x27; %&gt;&quot;</span>)&#125;, <span class="hljs-number">0</span>)<br><br><br>        <span class="hljs-keyword">const</span> wrapper = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;bubble-wrapper&quot;</span>);<br><br>        <span class="hljs-keyword">const</span> <span class="hljs-title function_">animateBubble</span> = x =&gt; &#123;  <br>        <span class="hljs-keyword">const</span> bubble = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;div&quot;</span>);<br>  <br>        bubble.<span class="hljs-property">className</span> = <span class="hljs-string">&quot;bubble&quot;</span>;<br>        bubble.<span class="hljs-property">style</span>.<span class="hljs-property">left</span> = <span class="hljs-string">`<span class="hljs-subst">$&#123;x&#125;</span>px`</span>;<br>  <br>         wrapper.<span class="hljs-title function_">appendChild</span>(bubble);<br>  <br>        <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> wrapper.<span class="hljs-title function_">removeChild</span>(bubble), <span class="hljs-number">2000</span>);<br>        &#125;<br><br>        <span class="hljs-variable language_">window</span>.<span class="hljs-property">onmousemove</span> = <span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> <span class="hljs-title function_">animateBubble</span>(e.<span class="hljs-property">clientX</span>);<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+<div class="post-note note-warning"><p>要注意的是原作者 EJS 檔名不見得很直覺，要一個一個檢查看看你要換的是在什麼地方</p></div>
+
+<p>剩下的 CSS 就塞在原本會放的位置 ex: style.css。<br>然後就解決了～～<br><img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://i.imgur.com/vHJj5Z9.jpg" class="lozad post-image"src="https://i.imgur.com/vHJj5Z9.jpg"><br>（那個藍藍的是海浪（？）會隨著滑鼠移動）</p>
+<p><img  srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://i.imgur.com/Sf952ak.png" class="lozad post-image"src="https://i.imgur.com/Sf952ak.png"></p>
+<p><strong>％％％％％</strong></p>
+<h2 id="EJS-介紹"><a href="#EJS-介紹" class="headerlink" title="EJS 介紹"></a>EJS 介紹</h2><ul>
+<li>簡單介紹一下 EJS 怎麼寫</li>
+<li>就是用 <code>&lt;%= %&gt;</code> or <code>&lt;%- %&gt;</code> 把 JS 包起來，被包起來的就會進行編譯。舉個例子：<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">&lt;body&gt;<br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span></span><br><span class="language-xml">&lt;% for(var i = 0; i &lt; users.length; i++) &#123; %&gt;</span><br><span class="language-xml">&lt;% var user = users[i]; %&gt;</span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>&lt;%= user %&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="language-xml">&lt;% &#125; %&gt;</span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span><br>&lt;/body&gt;<br></code></pre></td></tr></table></figure>
+如果 users &#x3D; [‘one’, ‘two’, ‘three’] 那渲染出來的就是：</li>
+<li>one</li>
+<li>two</li>
+<li>three</li>
+</ul>
+<p>那這可以幹嘛呢？<br>如果每個網頁都有重複的東西 <code>ex: home, tags, about...的header</code>就可以靠 EJS 解決。舉個栗子：<br>原本是每個介面都要寫一次這個：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">&lt;header&gt;<br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/&quot;</span>&gt;</span>my Blog<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span><br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">nav</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;about&quot;</span>&gt;</span>about<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;tags&quot;</span>&gt;</span>tags<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;Categories&quot;</span>&gt;</span>Categories<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span></span><br>&lt;/header&gt;<br></code></pre></td></tr></table></figure>
+<p>用 EJS 的方式處理：<br>我們可以當作一個模板片段單獨獨立出來（這裡叫做<code>common-header.ejs</code>）處理這個重複的部分，然後在各個頁面引入。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">&lt;body&gt;<br>    &lt;%- <span class="hljs-title function_">include</span>(<span class="hljs-string">&#x27;./templates/common-header.ejs&#x27;</span>); %&gt;<br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>my Blog<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br>&lt;/body&gt;<br></code></pre></td></tr></table></figure>
+
+<p>參考檔案：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/52722144">https://zhuanlan.zhihu.com/p/52722144</a></li>
+<li><a target="_blank" rel="noopener" href="https://ejs.bootcss.com/">https://ejs.bootcss.com</a></li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@charming_rust_oyster_221/ejs-%E5%85%A7%E5%B5%8C%E5%BC%8F%E7%9A%84%E6%A8%A3%E6%9D%BF%E5%BC%95%E6%93%8E-%E7%AD%86%E8%A8%98-482d83c73887">https://medium.com/@charming_rust_oyster_221/ejs-內嵌式的樣板引擎-筆記-482d83c73887</a></li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/web-design-zone/ejs%E6%A8%A3%E6%9D%BF%E5%BC%95%E6%93%8E%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F-40873ea2dfae">https://medium.com/web-design-zone/ejs樣板引擎的使用方式-40873ea2dfae</a></li>
+</ul>
+
   </div>
   <div>
     
@@ -541,20 +549,20 @@
 </article>
 <div class="nav">
   
-    <div class="nav-item-prev">
+  
+    <div class="nav-item-next">
       <a 
-        href="/2022/09/25/hello-world/" 
+        href="/2022/09/28/%E4%B8%80%E9%8D%B5%E9%83%A8%E7%BD%B2-Hexo-%E5%88%B0-Github/" 
         class="nav-link">
-        <i class="iconfont icon-left nav-prev-icon"></i>
         <div>
-          <div class="nav-label">Prev</div>
+          <div class="nav-label">Next</div>
           
-            <div class="nav-title">Hello World </div>
+            <div class="nav-title">一鍵部署 Hexo 到 Github </div>
           
         </div>
+        <i class="iconfont icon-right nav-next-icon"></i>
       </a>
     </div>
-  
   
 </div>
 
@@ -601,7 +609,7 @@
     style="padding-right: 2px;">
   </i>TOC
 </div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#setup"><span class="toc-text">setup</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E9%81%87%E5%88%B0%E7%9A%84%E5%95%8F%E9%A1%8C"><span class="toc-text">我遇到的問題</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E7%90%86%E6%99%82%E9%96%93"><span class="toc-text">推理時間</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA"><span class="toc-text">解決</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EJS-%E4%BB%8B%E7%B4%B9"><span class="toc-text">EJS 介紹</span></a></li></ol>
 </div>
             </main>
             <aside class="right-column">
@@ -615,7 +623,7 @@
     style="padding-right: 2px;">
   </i>TOC
 </div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#setup"><span class="toc-text">setup</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E9%81%87%E5%88%B0%E7%9A%84%E5%95%8F%E9%A1%8C"><span class="toc-text">我遇到的問題</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E7%90%86%E6%99%82%E9%96%93"><span class="toc-text">推理時間</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%B1%BA"><span class="toc-text">解決</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EJS-%E4%BB%8B%E7%B4%B9"><span class="toc-text">EJS 介紹</span></a></li></ol>
     </article>
   
   
