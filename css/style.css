@@ -222,6 +222,7 @@ body {
 .article-entry hr {
   border: 1px dashed #ddd;
 }
+
 @keyframes wave {
   from, to {
     transform: translate(-50%, 0%);
@@ -231,7 +232,6 @@ body {
     transform: translate(-50%, -20%);
   }
 }
-
 #bubble-wrapper {
   height: 100%;
   width: 100%;
@@ -247,7 +247,7 @@ body {
   height: max(300px, 30vw);
   width: max(300px, 30vw);
   
-  background-color: rgb(49, 115, 0);  
+  background-color: rgb(33, 150, 243);  
   border-radius: 100%;
   
   position: absolute;
