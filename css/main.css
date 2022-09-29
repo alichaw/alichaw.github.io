@@ -1582,7 +1582,7 @@ mjx-container svg:focus {
 .style .token.string {
   background: none !important;
 }
-
+/*
 @keyframes wave {
   from, to {
     transform: translate(-50%, 0%);
@@ -1623,4 +1623,4 @@ mjx-container svg:focus {
     animation: none;
     display: none;
   }
-}
+}*/
