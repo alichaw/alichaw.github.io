@@ -390,45 +390,15 @@
   <div class="tags-list">
     
       <a 
-        href="/tags/hexo-note/" 
-        title="hexo_note">
-        <div class="tags-list-item">hexo_note</div>
-      </a>
-    
-      <a 
-        href="/tags/test/" 
-        title="test">
-        <div class="tags-list-item">test</div>
-      </a>
-    
-      <a 
-        href="/tags/Dart/" 
-        title="Dart">
-        <div class="tags-list-item">Dart</div>
-      </a>
-    
-      <a 
-        href="/tags/Flutter/" 
-        title="Flutter">
-        <div class="tags-list-item">Flutter</div>
-      </a>
-    
-      <a 
         href="/tags/hexo/" 
         title="hexo">
         <div class="tags-list-item">hexo</div>
       </a>
     
       <a 
-        href="/tags/web/" 
-        title="web">
-        <div class="tags-list-item">web</div>
-      </a>
-    
-      <a 
-        href="/tags/hack/" 
-        title="hack">
-        <div class="tags-list-item">hack</div>
+        href="/tags/JavaScript/" 
+        title="JavaScript">
+        <div class="tags-list-item">JavaScript</div>
       </a>
     
       <a 
@@ -438,9 +408,39 @@
       </a>
     
       <a 
-        href="/tags/JavaScript/" 
-        title="JavaScript">
-        <div class="tags-list-item">JavaScript</div>
+        href="/tags/hack/" 
+        title="hack">
+        <div class="tags-list-item">hack</div>
+      </a>
+    
+      <a 
+        href="/tags/web/" 
+        title="web">
+        <div class="tags-list-item">web</div>
+      </a>
+    
+      <a 
+        href="/tags/Flutter/" 
+        title="Flutter">
+        <div class="tags-list-item">Flutter</div>
+      </a>
+    
+      <a 
+        href="/tags/Dart/" 
+        title="Dart">
+        <div class="tags-list-item">Dart</div>
+      </a>
+    
+      <a 
+        href="/tags/test/" 
+        title="test">
+        <div class="tags-list-item">test</div>
+      </a>
+    
+      <a 
+        href="/tags/hexo-note/" 
+        title="hexo_note">
+        <div class="tags-list-item">hexo_note</div>
       </a>
     
   </div>
@@ -821,22 +821,24 @@
       <script>
         setTimeout(() => {localSearch("search.json")}, 0)
 
+        window.onload = function(){
+          const wrapper = document.getElementById("bubble-wrapper");
 
-        const wrapper = document.getElementById("bubble-wrapper");
+          const animateBubble = x => {  
+          const bubble = document.createElement("div");
+  
+          bubble.className = "bubble";
+          bubble.style['left'] = `${x}px`;
+  
+          wrapper.appendChild(bubble);
+  
+          setTimeout(() => wrapper.removeChild(bubble), 2000);
+          }
 
-        const animateBubble = x => {  
-        const bubble = document.createElement("div");
-  
-        bubble.className = "bubble";
-        bubble.style.left = `${x}px`;
-  
-         wrapper.appendChild(bubble);
-  
-        setTimeout(() => wrapper.removeChild(bubble), 2000);
+         window.onmousemove = e => animateBubble(e.clientX);
+
         }
-
-        window.onmousemove = e => animateBubble(e.clientX);
-
+        
       </script>
     
   </body>
